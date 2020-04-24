@@ -10,10 +10,4 @@ class GameController extends Controller
 
       return view ('game');
   }
-
-    public function contact()
-    {
-
-        return view('contact');
-    }
 }

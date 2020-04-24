@@ -15,6 +15,13 @@ class HomeController extends Controller
 
         return view ('index')->with(['users' => $users, 'posts' => $posts]);
     }
+    
+    public function showblog() {
+        
+        $posts = Posts::orderBy('created_at', 'desc')->get()->paginate(9);
+                
+        return view('blog')->with('posts', $posts);
+    }
 
     public function create() {
 

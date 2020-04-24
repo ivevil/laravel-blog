@@ -1,91 +1,69 @@
-@extends('layouts.header')
-<div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">IT IVEVIL 2017</div>
-<div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">3481
-    Melrose Place | Beverly Hills, CA 90210 | 123.456.7890
-</div>
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
-    <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item active px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="create">Create</a>
-                </li>
-                <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="">Blog</a>
-                </li>
-                <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="contact">Contact</a>
-                </li>
-                <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="game">Game</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+@include('layouts.header')
 
 <div class="container">
 
     <div class="bg-faded p-4 my-4">
-        <!-- Image Carousel -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <img class="d-block img-fluid w-100" src="http://www.themalaysiantimes.com.my/wp-content/uploads/2017/05/06-train-cat-shake-hands.jpg" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-shadow">First Slide</h3>
-                        <p class="text-shadow">This is the caption for the first slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block img-fluid w-100" src="http://www.discoverfrome.co.uk/wp-content/uploads/2017/06/cat.jpg" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-shadow">Second Slide</h3>
-                        <p class="text-shadow">This is the caption for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block img-fluid w-100" src="https://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-shadow">Third Slide</h3>
-                        <p class="text-shadow">This is the caption for the third slide.</p>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
 
+   	<div class="container-contact100">
+		<div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
 
-    <div class="parent">
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-        <div class="item">4</div>
-        <div class="item">5</div>
-    </div>
+		<div class="wrap-contact100">
+		    @if ($message = Session::get('success'))
+               <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                       <strong>{{ $message }}</strong>
+               </div>
+               @endif
+			<div class="contact100-form-title" style="background-image: url({{ asset('/') }}public/img/bg-01.jpg);">
+				<span class="contact100-form-title-1">
+					CONTACT US
+				</span>
 
-@extends('layouts.footer')
+				<span class="contact100-form-title-2">
+					FEEL FREE TO DROP US A LINE BELOW.
+				</span>
+			</div>
+
+			<form method="post" class="contact100-form validate-form" action="{{route('send')}}">
+			    {{ csrf_field() }}
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">FULL NAME:</span>
+					<input class="input100" type="text" name="name" placeholder="Enter full name">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<span class="label-input100">EMAIL:</span>
+					<input class="input100" type="text" name="email" placeholder="Enter email addess">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Phone is required">
+					<span class="label-input100">PHONE:</span>
+					<input class="input100" type="text" name="phone" placeholder="Enter phone number">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">MESSAGE:</span>
+					<textarea class="input100" name="message" placeholder="Your Comment..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							SUBMIT
+							<i class="fa fa-paper-plane m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="dropDownSelect1"></div>
+</div>
+</div>
+
+@include('layouts.footer')
