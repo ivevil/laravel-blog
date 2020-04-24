@@ -14,8 +14,8 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         // 2. Display the result
         document.getElementById('dice-1').style.display = 'block';
         document.getElementById('dice-2').style.display = 'block';
-        document.getElementById('dice-1').src = 'img/dice-' + dice1 + '.png';
-        document.getElementById('dice-2').src = 'img/dice-' + dice2 + '.png';
+        document.getElementById('dice-1').src = 'public/img/dice-' + dice1 + '.png';
+        document.getElementById('dice-2').src = 'public/img/dice-' + dice2 + '.png';
 
         if (dice1 !== 1 && dice2 !== 1) {
             //Add score
@@ -125,3 +125,29 @@ function init() {
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
 }
+
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
