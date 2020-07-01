@@ -10,7 +10,8 @@ class Widgets extends Model
     protected $fillable = [
         'name',
         'description',
-        'details'
+        'details',
+        'type'
     ];
 
 }

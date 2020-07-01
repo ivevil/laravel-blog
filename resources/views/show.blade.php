@@ -29,11 +29,11 @@
         @if($post->featured_image)
         <hr class="divider">
         <div class=" d-flex justify-content-center align-items-center">
-            <img class="img-fluid" src="{{url('/')}}/storage/app/public{{$post->featured_image}}">
+            <img class="img-fluid" src="{{url('/')}}{{$post->featured_image}}">
         </div>
         @endif
         <hr class="divider">
-        <p>{{ $post->body }}</p>
+        <div class="container-fluid d-flex justify-content-center align-items-center flex-column">{!! $post->body !!}</p>
         <hr class="side">
     </div>
 </div>

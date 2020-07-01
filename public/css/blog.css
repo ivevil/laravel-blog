@@ -23,6 +23,36 @@ h1 {
   font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif; 
 }
 
+blockquote {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 70%;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  position: relative;
+  font-size: 2.4em;
+  line-height: 1.5em;
+  margin: 10px auto;
+}
+
+blockquote:before {
+    content: '\201C';
+    position: absolute;
+    top: 0.15em;
+    left: -28px;
+    color: black;
+    font-size: 6em;
+}
+
+blockquote:after {
+    content: '\201C';
+    position: absolute;
+    bottom: 15px;
+    right: -20px;
+    transform: rotate(180deg);
+    color: black;
+    font-size: 6em;
+}
+
 .tagline-upper {
     font-size: 5rem;
     font-weight: 700;
@@ -75,8 +105,7 @@ hr.divider {
     pointer-events: auto;
 }
 
-/* RECIPES */
-/* :: 8.0 Best Receipe Area */
+/* Widget star rater */
 
 .best-cats-area {
     position: relative;
@@ -116,7 +145,46 @@ hr.divider {
                 display: inline-block;
                 padding: 0 1px;
             }
+            
+.fa-star:before 
+{
+    content: "\f006" !important;
+}
 
+.ratings-1 .fa-star:nth-child(1):before 
+{
+    content: "\f005" !important;
+}
+
+.ratings-2 .fa-star:nth-child(1):before,
+.ratings-2 .fa-star:nth-child(2):before
+{
+    content: "\f005" !important;
+}
+
+.ratings-3 .fa-star:nth-child(1):before,
+.ratings-3 .fa-star:nth-child(2):before,
+.ratings-3 .fa-star:nth-child(3):before
+{
+    content: "\f005" !important;
+}
+
+.ratings-4 .fa-star:nth-child(1):before,
+.ratings-4 .fa-star:nth-child(2):before,
+.ratings-4 .fa-star:nth-child(3):before,
+.ratings-4 .fa-star:nth-child(4):before
+{
+    content: "\f005" !important;
+}
+
+.ratings-5 .fa-star:nth-child(1):before,
+.ratings-5 .fa-star:nth-child(2):before,
+.ratings-5 .fa-star:nth-child(3):before,
+.ratings-5 .fa-star:nth-child(4):before,
+.ratings-5 .fa-star:nth-child(5):before
+{
+    content: "\f005" !important;
+}
 
 /*--------------------------------------------------------------
 # Portfolio
@@ -231,8 +299,6 @@ hr.divider {
     height: 600px;
     padding: 100px;
 }
-
-
 
 /**********************************************
 *** PLAYERS

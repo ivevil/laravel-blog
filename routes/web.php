@@ -44,6 +44,13 @@ Route::get('/pages/edit', 'PagesController@edit')->name('editpage')->middleware(
 Route::post('/pages/edit', 'PagesController@update')->middleware('auth');
 Route::get('/pages/delete', 'PagesController@destroy')->middleware('auth');
 
+Route::get('/media', 'MediaController@index')->name('media')->middleware('auth');
+Route::get('/media/create', 'MediaController@create')->name('addmedia')->middleware('auth');
+Route::post('/media/create', 'MediaController@store')->middleware('auth');
+Route::get('/media/edit', 'MediaController@edit')->name('editmedia')->middleware('auth');
+Route::post('/media/edit', 'MediaController@update')->middleware('auth');
+Route::get('/media/delete', 'MediaController@destroy')->middleware('auth');
+
 Route::get('/menus', 'MenusController@index')->name('menus')->middleware('auth');
 Route::get('/menus/create', 'MenusController@create')->name('addmenu')->middleware('auth');
 Route::post('/menus/create', 'MenusController@store')->middleware('auth');

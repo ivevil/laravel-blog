@@ -27,7 +27,7 @@
                 <img class="blog__featured-image" src="{{url('/')}}/storage/app/public/{{$post->featured_image}}">
                 @endif
                 <hr class="side">
-                    <a href="posts/{{ $post->idPosts }}" class="josefin text-center text-lg">
+                    <a href="{{url('/')}}/posts/{{ $post->idPosts }}" class="josefin text-center text-lg">
                         <strong>{{ $post->title }}</strong>
                     </a>
                 <div class="card-body">

@@ -91,3 +91,35 @@ body {
 
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+/*
+ * Widgets
+ */
+ 
+ .widget-starrater-1.checked-1,
+ .widget-starrater-2.checked-2,
+ .widget-starrater-3.checked-3 {
+    color: orange;
+ }
+ 
+ .widget-starrater:nth-child(2):hover .check {
+    color: orange;
+    cursor: pointer;
+ }
+ 
+ 
+.modal.fade .modal-dialog.modal-lg {
+    transform: translate(0, 50%);
+}
+
+.gallery-item {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.post-image {
+    margin: 0 auto;
+}
+ 
+ 

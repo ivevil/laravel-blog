@@ -22,7 +22,7 @@
               <thead>
                 <tr>
                   <th>Title</th>
-                  <th>Slug</th>
+                  <th>Type</th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -33,7 +33,9 @@
                 @foreach($widgets as $widget)
                 <tr>
                   <td>{{$widget->name}}</td>
-                  <td>{{$widget->slug}}</td>
+                  <td>@if($widget->type == 0) Slider 
+                  @elseif($widget->type == 1) Starrater 
+                  @elseif($widget->type == 2) Catagolizer @endif</td>
                   <td></td>
                   <td></td>
                   <td>

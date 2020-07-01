@@ -6,10 +6,12 @@ use App\Comments;
 use App\Categories;
 use App\Posts;
 use App\User;
+use App\Media;
 use App\Traits\UploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Routing\UrlGenerator;
 
 class PostController extends Controller
 {
@@ -25,8 +27,12 @@ class PostController extends Controller
     public function create()
     {
         $categories = Categories::all();
+        $media = Media::all();
         
-        return view ('admin.create-post')->with('categories', $categories);
+        return view ('admin.create-post')->with([
+            'categories' => $categories,
+            'media' => $media
+            ]);
     }
 
     public function store(Request $request)
@@ -40,18 +46,9 @@ class PostController extends Controller
         $post->Categories()->associate($category);
         
         if ($request->has('featured_image')) {
-            // Get image file
-            $image = $request->file('featured_image');
-            // Make a image name based on user name and current timestamp
-            $name = Str::slug($request->input('title')).'_'.time();
-            // Define folder path
-            $folder = '/uploads/images/';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-            // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
-            // Set user profile image path in database to filePath
-            $post->featured_image = $filePath;
+            $post->featured_image = $request->featured_image;
+        } else {
+            $post->featured_image = '';
         }
         
         $user = Auth::user();
@@ -71,8 +68,13 @@ class PostController extends Controller
         $id = $request->input("id");
         $post = Posts::find($id);
         $categories = Categories::all();
+        $media = Media::all();
         
-        return view('admin.edit-post')->with(['categories' => $categories, 'post' => $post]);
+        return view('admin.edit-post')->with([
+            'categories' => $categories, 
+            'post' => $post,
+            'media' => $media
+            ]);
     }
 
     public function update(Request $request)
@@ -84,19 +86,12 @@ class PostController extends Controller
                 
         $post->update(request()->all());
         
-        if ($request->has('featured_image')) {
-            // Get image file
-            $image = $request->file('featured_image');
-            // Make a image name based on user name and current timestamp
-            $name = Str::slug($request->input('title')).'_'.time();
-            // Define folder path
-            $folder = '/uploads/images/';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-            // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
-            // Set user profile image path in database to filePath
-            $post->featured_image = $filePath;
+        //dd($request->all());
+        
+         if ($request->has('featured_image')) {
+            $post->featured_image = $request->featured_image;
+        } else {
+            $post->featured_image = '';
         }
         
         $post->save();

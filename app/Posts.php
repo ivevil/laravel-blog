@@ -19,7 +19,6 @@ class Posts extends Model
        return $this->featured_image;
     }
 
-
     public function comments()
     {
         return $this->hasMany(Comments::class);
@@ -33,5 +32,10 @@ class Posts extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'userid');
+    }
+    
+        public function images()
+    {
+        return $this->hasMany(Media::class);
     }
 }

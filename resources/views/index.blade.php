@@ -11,27 +11,15 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <img class="d-block img-fluid w-100" src="{{asset('/')}}public/img/cat-1.jpg" alt="">
+                @for($i = 1; $i < 4; $i++)
+                <div class="carousel-item @if($i == 1) active @endif">
+                    <img class="d-block img-fluid w-100" src="{{$slider->details['slider_image_' . $i]}}" alt="">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-shadow">First Slide</h3>
-                        <p class="text-shadow">This is the caption for the first slide.</p>
+                        <h3 class="text-shadow">{{$slider->details['slider_title_' . $i]}}</h3>
+                        <p class="text-shadow">{{$slider->details['slider_description_' . $i]}}</p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block img-fluid w-100" src="{{asset('/')}}public/img/cat-2.jpg" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-shadow">Second Slide</h3>
-                        <p class="text-shadow">This is the caption for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block img-fluid w-100" src="{{asset('/')}}public/img/cat-3.jpg" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-shadow">Third Slide</h3>
-                        <p class="text-shadow">This is the caption for the third slide.</p>
-                    </div>
-                </div>
+                @endfor
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,9 +33,9 @@
         <!-- Welcome Message -->
         <div class="text-center mt-4">
             <div class="text-heading text-muted text-lg">Welcome To</div>
-            <h1 class="my-2">Business Casual</h1>
+            <h1 class="my-2">{{$slider->name}}</h1>
             <div class="text-heading text-muted text-lg">By
-                <strong>Ivevil</strong>
+                <strong>{{$slider->description}}</strong>
             </div>
         </div>
     </div>
@@ -62,119 +50,25 @@
             </div>
 
             <div class="row best-cats-area-row d-flex justify-content-center align-items-center">
-                <!-- Single Best Receipe Area -->
+                @for($i = 1; $i < 4; $i++)
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-cats-area mb-30">
-                        <img src="{{asset('/')}}public/img/cat-1.jpg" alt="">
+                        <img src="{{$starrater->details['starrater_image_' . $i]}}" alt="">
                         <div class="cats-content">
                             <a href="cats-post.html">
-                                <h5>Meow</h5>
+                                <h5>{{$starrater->details['starrater_title_' . $i]}}</h5>
                             </a>
-                            <div class="ratings">
+                            <div class="ratings ratings-{{$starrater->details['starrater_description_' . $i]}}">
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-cats-area mb-30">
-                        <img src="{{asset('/')}}public/img/cat-2.jpg" alt="">
-                        <div class="cats-content">
-                            <a href="cats-post.html">
-                                <h5>Meow 1</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-cats-area mb-30">
-                        <img src="{{asset('/')}}public/img/cat-3.jpg" alt="">
-                        <div class="cats-content">
-                            <a href="cats-post.html">
-                                <h5>Meow 2</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-cats-area mb-30">
-                        <img src="{{asset('/')}}public/img/cat-1.jpg" alt="">
-                        <div class="cats-content">
-                            <a href="cats-post.html">
-                                <h5>Meow 3</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-cats-area mb-30">
-                        <img src="{{asset('/')}}public/img/cat-2.jpg" alt="">
-                        <div class="cats-content">
-                            <a href="cats-post.html">
-                                <h5>Meow 4</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-cats-area mb-30">
-                        <img src="{{asset('/')}}public/img/cat-3.jpg" alt="">
-                        <div class="cats-content">
-                            <a href="cats-post.html">
-                                <h5>Meow 5</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endfor
             </div>
     </div>
  
@@ -192,52 +86,22 @@
 
               <ul class="nav list-unstyled" id="portfolio-flters">
                 <li class="filter filter-active" data-filter=".all">all</li>
-                <li class="filter" data-filter=".test">test</li>
-                <li class="filter" data-filter=".mockups">mockups</li>
-                <li class="filter" data-filter=".uikits">ui kits</li>
-                <li class="filter" data-filter=".webdesign">web design</li>
-                <li class="filter" data-filter=".photography">photography</li>
+                @for($i = 1; $i < 7; $i++)
+                <li class="filter" data-filter=".@isset($detailsunique['catagolizer_description_' . $i]){{$detailsunique['catagolizer_description_' . $i]}}@endisset">@isset($detailsunique['catagolizer_description_' . $i]) {{$detailsunique['catagolizer_description_' . $i]}} @endisset</li>
+                @endfor
               </ul>
 
             </div>
 
             <div class="portfolio-container">
-
-              <div class="col-lg-4 col-md-6 portfolio-thumbnail all test uikits webdesign">
+            
+            @for($i = 1; $i < 7; $i++)
+              <div class="col-lg-4 col-md-6 portfolio-thumbnail all {{$catagolizer->details['catagolizer_description_' . $i]}}">
                 <a class="popup-img" href="assets/img/portfolio/1.jpg">
-                  <img src="{{asset('/')}}public/img/cat-3.jpg" alt="img">
+                  <img src="{{$catagolizer->details['catagolizer_image_' . $i]}}" alt="img">
                 </a>
               </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits photography">
-                <a class="popup-img" href="assets/img/portfolio/2.jpg">
-                  <img src="{{asset('/')}}public/img/cat-3.jpg" alt="img">
-                </a>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-thumbnail all test webdesig photographyn">
-                <a class="popup-img" href="assets/img/portfolio/3.jpg">
-                  <img src="{{asset('/')}}public/img/cat-3.jpg" alt="img">
-                </a>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups webdesign photography">
-                <a class="popup-img" href="assets/img/portfolio/4.jpg">
-                  <img src="{{asset('/')}}public/img/cat-3.jpg" alt="img">
-                </a>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits photography">
-                <a class="popup-img" href="assets/img/portfolio/5.jpg">
-                  <img src="{{asset('/')}}public/img/cat-3.jpg" alt="img">
-                </a>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits webdesign">
-                <a class="popup-img" href="assets/img/portfolio/6.jpg">
-                  <img src="{{asset('/')}}public/img/cat-3.jpg" alt="img">
-                </a>
-              </div>
+              @endfor
 
             </div>
           </div>

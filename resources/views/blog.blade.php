@@ -7,7 +7,7 @@
         <div class="col-lg-4">
             <div class="bg-faded p-4 my-4 card">
                 @if($post->featured_image)
-                <img class="blog__featured-image" src="{{url('/')}}/storage/app/public/{{$post->featured_image}}">
+                <img class="blog__featured-image" src="{{url('/')}}{{$post->featured_image}}">
                 @endif
                 <hr class="side">
                     <a href="posts/{{ $post->idPosts }}" class="josefin text-center text-lg">
@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <hr class="side">
                     <p class="card-text text-center">
-                        {{ str_limit($post->body, 150, '...') }}
+                        {!! str_limit(strip_tags($post->body),150, '...') !!}
                     </p>
                     <p></p>
                 </div>
